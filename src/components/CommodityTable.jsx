@@ -76,7 +76,7 @@ const CommodityTable = ({ commodities }) => {
         <TableHead>
           <TableRow
             sx={{
-              background: "#172432",
+              background: "#d5b61d",
               "& th": {
                 borderBottom: "none",
               },
@@ -84,7 +84,7 @@ const CommodityTable = ({ commodities }) => {
           >
             <TableCell
               sx={{
-                color: "white",
+                color: "#013b24",
                 fontWeight: "bold",
                 fontSize: "1.8vw",
                 textAlign: "center",
@@ -95,7 +95,7 @@ const CommodityTable = ({ commodities }) => {
             </TableCell>
             <TableCell
               sx={{
-                color: "white",
+                color: "#013b24",
                 fontWeight: "bold",
                 fontSize: "1.8vw",
                 textAlign: "left",
@@ -105,7 +105,7 @@ const CommodityTable = ({ commodities }) => {
             </TableCell>
             <TableCell
               sx={{
-                color: "white",
+                color: "#013b24",
                 fontWeight: "bold",
                 fontSize: "1.8vw",
                 textAlign: "left",
@@ -172,7 +172,7 @@ const CommodityTable = ({ commodities }) => {
                       borderBottom: "none",
                       padding: "7px",
                     },
-                    background: "#FFFFFF",
+                    background: "#013b24",
                     "& tr td": {
                       border: "2px solid #D2AD36",
                     },
@@ -197,7 +197,7 @@ const CommodityTable = ({ commodities }) => {
                 >
                   <TableCell
                     sx={{
-                      color: "black",
+                      color: "white",
                       fontSize: "2vw",
                       fontWeight: "bold",
                       textAlign: "right",
@@ -207,7 +207,7 @@ const CommodityTable = ({ commodities }) => {
                   </TableCell>
                   <TableCell
                     sx={{
-                      color: "black",
+                      color: "white",
                       fontSize: "1.2vw",
                       textAlign: "left",
                       paddingLeft: "0px",
@@ -220,7 +220,7 @@ const CommodityTable = ({ commodities }) => {
                   </TableCell>
                   <TableCell
                     sx={{
-                      color: "black",
+                      color: "white",
                       fontSize: "1.8vw",
                       fontWeight: "bold",
                       textAlign: "left",
@@ -230,7 +230,7 @@ const CommodityTable = ({ commodities }) => {
                   </TableCell>
                   <TableCell
                     sx={{
-                      color: "black",
+                      color: "white",
                       fontSize: "2vw",
                       fontWeight: "bold",
                       textAlign: "left",

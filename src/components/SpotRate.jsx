@@ -28,7 +28,7 @@ const SpotRate = () => {
           top: "-20px", 
           left: "50%",
           transform: "translateX(-50%)",
-          backgroundColor: "#000000",
+          backgroundColor: "#d5b61d",
           borderRadius: "20px",
           padding: "22px 24px",
           zIndex: 2,
@@ -43,7 +43,7 @@ const SpotRate = () => {
             fontSize: metal === 'gold' ? "28px" : "22px",
             fontWeight: "700",
             letterSpacing: "0.5px",
-            color: "white",
+            color: "#013b24",
             lineHeight: 1,
           }}
         >
@@ -54,7 +54,7 @@ const SpotRate = () => {
       {/* Main Card */}
       <Box
         sx={{
-          background: "#172432",
+          background: "#013b24",
           borderRadius: "32px",
           padding: "0",
           color: "white",

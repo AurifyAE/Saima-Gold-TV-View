@@ -5,7 +5,7 @@ import SpotRate from "../components/SpotRate";
 import CommodityTable from "../components/CommodityTable";
 import NewsTicker from "../components/News";
 import TimeDisplay from "../components/Clock";
-import saimaLogo from "../assets/saimaLogo2.png";
+import saimaLogo from "../assets/saimaLogo.png";
 import Carousel from "../components/Carousel";
 import {
   fetchSpotRates,
@@ -190,8 +190,8 @@ function TvScreen() {
   const { day, date, month, year } = getFormattedDateParts(currentDate);
 
   return (
-    <Box sx={{ minHeight: "100vh", color: "white", padding: "20px" }}>
-      <Box className="flex flex-row items-center justify-between mb-10">
+    <Box sx={{ minHeight: "100vh", color: "white", padding: "0px" }}>
+      <Box className="flex flex-row items-center justify-between mb-10 p-10 py-0 mt-3">
 
         {/* Date */}
         <Box>
@@ -258,6 +258,7 @@ function TvScreen() {
         direction="row"
         alignItems="flex-start"
         justifyContent="space-between"
+        className="p-10 py-0"
       >
         {/* Side: Commodity Table */}
         <Grid item xs={12} md={8}>
