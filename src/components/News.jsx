@@ -11,7 +11,7 @@ const NewsTicker = ({ newsItems }) => {
         justifyContent: "center",
         height: "50px",
         marginTop: "7px",
-        backgroundColor: "#013b24",
+        backgroundColor: "#013831",
       }}
     >
       <Box

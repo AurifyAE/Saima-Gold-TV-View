@@ -172,7 +172,7 @@ const CommodityTable = ({ commodities }) => {
                       borderBottom: "none",
                       padding: "7px",
                     },
-                    background: "#013b24",
+                    background: "#013831",
                     "& tr td": {
                       border: "2px solid #D2AD36",
                     },

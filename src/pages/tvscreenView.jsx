@@ -4,7 +4,6 @@ import LimitExceededModal from "../components/LimitExceededModal";
 import SpotRate from "../components/SpotRate";
 import CommodityTable from "../components/CommodityTable";
 import NewsTicker from "../components/News";
-import TimeDisplay from "../components/Clock";
 import saimaLogo from "../assets/saimaLogo.png";
 import Carousel from "../components/Carousel";
 import {
@@ -248,9 +247,6 @@ function TvScreen() {
         </Box>
       </Box>
 
-      {/* News Component */}
-      <NewsTicker newsItems={news} />
-
       {/* Grid */}
       <Grid
         container
@@ -280,6 +276,9 @@ function TvScreen() {
           </Box>
         </Grid>
       </Grid>
+
+      {/* News Component */}
+      <NewsTicker newsItems={news} />
 
       {/* Conditional rendering of the modal */}
       {showLimitModal && <LimitExceededModal />}
