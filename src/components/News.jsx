@@ -6,20 +6,30 @@ const NewsTicker = ({ newsItems }) => {
     <Box
       sx={{
         display: "flex",
-        flexDirection: "row",
-        alignItems: "center",
-        justifyContent: "center",
-        height: "50px",
+        flexDirection: "column",
+        alignItems: "flex-start",
+        height: "100%",
         marginTop: "7px",
-        backgroundColor: "#013831",
       }}
     >
+      {/* NEWS Label */}
+      <Typography sx={{
+        color: "#013b24", fontWeight: "bold", fontSize: "1.6rem",
+        backgroundColor: "#d5b61d",
+        padding: "5px 10px",
+      }}>
+        NEWS
+      </Typography>
+
+      {/* Scrolling ticker */}
       <Box
         sx={{
           width: "100%",
           overflow: "hidden",
           whiteSpace: "nowrap",
           position: "relative",
+          backgroundColor: "#013831",
+          padding: "5px 10px",
         }}
       >
         <Box
@@ -28,8 +38,6 @@ const NewsTicker = ({ newsItems }) => {
             display: "inline-block",
             animation: "scroll 40s linear infinite",
             color: "white",
-            fontSize: "2vw",
-            textAlign: "center",
           }}
         >
           {newsItems.map((item, index) => (
@@ -40,13 +48,14 @@ const NewsTicker = ({ newsItems }) => {
                 marginRight: "4vw",
                 display: "inline-block",
                 color: "white",
-                fontSize: "2vw",
+                fontSize: "1.6rem",
               }}
             >
               {item.description}
             </Typography>
           ))}
         </Box>
+
         <style>
           {`
             @keyframes scroll {

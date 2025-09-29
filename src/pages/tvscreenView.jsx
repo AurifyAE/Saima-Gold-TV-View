@@ -14,6 +14,7 @@ import {
 } from "../api/api";
 import io from "socket.io-client";
 import { useSpotRate } from "../context/SpotRateContext";
+import TradingViewWidget from "../components/TradingView";
 
 function TvScreen() {
   const [showLimitModal, setShowLimitModal] = useState(false);
@@ -268,6 +269,9 @@ function TvScreen() {
         {/* Side: SpotRate */}
         <Grid item xs={12} md={4}>
           <Carousel />
+
+          {/* TradingView Component */}
+          <TradingViewWidget/>
 
           <Box className="flex flex-col justify-center items-center">
             <Typography sx={{ fontSize: "1.2vw", marginTop: "0px" }}>

@@ -18,7 +18,7 @@ const Carousel = () => {
   }, []);
 
   return (
-    <Box className="flex flex-row items-center justify-center relative mt-32"
+    <Box className="flex flex-row items-center justify-center relative mt-10"
       sx={{width: '30vw'}}
     >
       <img
