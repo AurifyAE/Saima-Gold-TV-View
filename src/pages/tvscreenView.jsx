@@ -232,7 +232,7 @@ function TvScreen() {
         </Box>
 
         {/* Logo */}
-        <img src={saimaLogo} alt="" className="w-66 h-40" />
+        <img src={saimaLogo} alt="" className="w-[230px] h-[230px]" />
 
         {/* Time */}
         <Box>

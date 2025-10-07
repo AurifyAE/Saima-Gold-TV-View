@@ -1,229 +1,220 @@
 import React from "react";
-import { Box, Typography } from "@mui/material";
 import { useSpotRate } from "../context/SpotRateContext";
 
 const SpotRate = () => {
   const { goldData, silverData } = useSpotRate();
 
   const getTextColor = (change) => {
-    if (change === "up") {
-      return "green";
-    } else if (change === "down") {
-      return "red";
-    }
-    return "white";
+    if (change === "up") return "#22c55e";
+    if (change === "down") return "#ef4444";
+    return "#ffffff";
   };
 
   const renderSpotCard = (metal, data, isGold = true) => (
-    <Box
-      sx={{
-        position: "relative",
-        marginTop: "20px",
-        width: isGold ? "100%" : "100%",
-      }}
-    >
-      {/* Header Badge - Half out, half in */}
-      <Box
-        sx={{
+    <div style={{ position: "relative", marginTop: "20px", width: "100%" }}>
+      {/* Header Badge */}
+      <div
+        style={{
           position: "absolute",
-          top: "-20px",
+          top: "-22px",
           left: "50%",
           transform: "translateX(-50%)",
-          backgroundColor: "#d5b61d",
-          borderRadius: "20px",
-          padding: isGold ? "22px 24px" : "18px 20px", // Smaller padding for silver
+          background: "#f4d03f",
+          borderRadius: "24px",
+          padding: isGold ? "12px 32px" : "10px 24px",
           zIndex: 2,
-          height: isGold ? "35px" : "30px", // Smaller height for silver
-          display: "flex",
-          alignItems: "center",
-          boxShadow: "0 4px 12px rgba(0, 0, 0, 0.3)",
         }}
       >
-        <Typography
-          sx={{
-            fontSize: isGold ? "28px" : "16px", // Smaller font for silver
-            fontWeight: "700",
-            letterSpacing: "0.5px",
+        <div
+          style={{
+            fontSize: isGold ? "22px" : "18px",
+            fontWeight: "800",
+            letterSpacing: "1.5px",
             color: "#013b24",
-            lineHeight: 1,
+            textTransform: "uppercase",
           }}
         >
-          {metal.toUpperCase()} SPOT
-        </Typography>
-      </Box>
+          {metal} Spot
+        </div>
+      </div>
 
       {/* Main Card */}
-      <Box
-        sx={{
+      <div
+        style={{
           background: "#013831",
-          borderRadius: "32px",
-          padding: "0",
-          color: "white",
+          borderRadius: "24px",
           position: "relative",
           overflow: "hidden",
-          minHeight: isGold ? "180px" : "140px", // Smaller height for silver
-          boxShadow: "0 8px 24px rgba(0, 0, 0, 0.4)",
-          width: "100%",
+          height: "160px"
         }}
       >
-        {/* Main Content Container */}
-        <Box
-          sx={{
+        
+        {/* Main Content */}
+        <div
+          style={{
             display: "flex",
             alignItems: "center",
-            justifyContent: "space-between",
-            padding: isGold ? "50px 32px 32px 32px" : "35px 16px 20px 16px", // Slightly reduced padding for silver
-            height: "100%",
+            justifyContent: "space-around",
+            padding: isGold ? "48px 24px 32px" : "42px 20px 28px",
+            position: "relative",
+            zIndex: 1,
           }}
         >
           {/* BID Section */}
-          <Box sx={{
-            display: "flex", flexDirection: "column", justifyContent: "center"
-          }} className="flex justify-center text-center">
-            <Typography
-              sx={{
-                fontSize: isGold ? "18px" : "16px", // Smaller font for silver
-                fontWeight: "700",
-                marginBottom: "16px",
-                color: "white",
-                letterSpacing: "1px",
-                width: "max-content",
+          <div style={{ textAlign: "center", flex: 1 }}>
+            <div
+              style={{
+                fontSize: isGold ? "14px" : "14px",
+                fontWeight: "600",
+                marginBottom: "12px",
+                color: "#94a3b8",
+                letterSpacing: "2px",
               }}
             >
               BID
-            </Typography>
-            <Typography
-              sx={{
-                fontSize: isGold ? "35px" : "22px", // Smaller font for silver
+            </div>
+            <div
+              style={{
+                fontSize: isGold ? "36px" : "30px",
                 fontWeight: "700",
                 color: getTextColor(data.bidChanged),
                 lineHeight: 1,
-                width: "max-content",
+                fontFamily: "system-ui, -apple-system, sans-serif",
+                textShadow: "0 2px 8px rgba(0, 0, 0, 0.2)",
               }}
             >
               {data.bid}
-            </Typography>
-          </Box>
+            </div>
+          </div>
 
-          {/* Vertical Divider 1 */}
-          <Box
-            sx={{
-              width: "2px",
-              height: isGold ? "80px" : "60px", // Smaller divider for silver
-              backgroundColor: "rgba(255, 255, 255, 0.3)",
-              margin: isGold ? "0px 16px" : "0px 12px", // Slightly reduced margin for silver
+          {/* Divider */}
+          <div
+            style={{
+              width: "1px",
+              height: isGold ? "70px" : "55px",
+              background: "linear-gradient(to bottom, transparent, rgba(255, 255, 255, 0.2), transparent)",
+              margin: "0 16px",
             }}
           />
 
           {/* ASK Section */}
-          <Box sx={{
-            textAlign: "center",
-          }}>
-            <Typography
-              sx={{
-                fontSize: isGold ? "18px" : "16px", // Smaller font for silver
-                fontWeight: "700",
-                marginBottom: "16px",
-                color: "white",
-                letterSpacing: "1px",
-                width: "max-content",
+          <div style={{ textAlign: "center", flex: 1 }}>
+            <div
+              style={{
+                fontSize: isGold ? "14px" : "14px",
+                fontWeight: "600",
+                marginBottom: "12px",
+                color: "#94a3b8",
+                letterSpacing: "2px",
               }}
             >
               ASK
-            </Typography>
-            <Typography
-              sx={{
-                fontSize: isGold ? "35px" : "22px", // Smaller font for silver
+            </div>
+            <div
+              style={{
+                fontSize: isGold ? "36px" : "30px",
                 fontWeight: "700",
-                color: getTextColor(data.bidChanged),
+                color: getTextColor(data.askChanged),
                 lineHeight: 1,
-                width: "max-content",
+                fontFamily: "system-ui, -apple-system, sans-serif",
+                textShadow: "0 2px 8px rgba(0, 0, 0, 0.2)",
               }}
             >
               {data.ask}
-            </Typography>
-          </Box>
+            </div>
+          </div>
 
-          {/* Vertical Divider 2 */}
-          <Box
-            sx={{
-              width: "2px",
-              height: isGold ? "80px" : "60px", // Smaller divider for silver
-              backgroundColor: "rgba(255, 255, 255, 0.3)",
-              margin: isGold ? "0 16px" : "0 12px", // Slightly reduced margin for silver
+          {/* Divider */}
+          <div
+            style={{
+              width: "1px",
+              height: isGold ? "70px" : "55px",
+              background: "linear-gradient(to bottom, transparent, rgba(255, 255, 255, 0.2), transparent)",
+              margin: "0 16px",
             }}
           />
 
           {/* TODAY Section */}
-          <Box sx={{ textAlign: "center" }}>
-            <Typography
-              sx={{
-                fontSize: isGold ? "18px" : "16px", // Smaller font for silver
-                fontWeight: "700",
-                marginBottom: "16px",
-                color: "white",
-                letterSpacing: "1px",
+          <div style={{ textAlign: "center", flex: 1 }}>
+            <div
+              style={{
+                fontSize: isGold ? "14px" : "14px",
+                fontWeight: "600",
+                marginBottom: "12px",
+                color: "#94a3b8",
+                letterSpacing: "2px",
               }}
             >
               TODAY
-            </Typography>
-            <Box sx={{ display: "flex", flexDirection: "column", gap: "8px" }}>
-              <Typography
-                sx={{
-                  fontSize: isGold ? "14px" : "12px", // Smaller font for silver
+            </div>
+            <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
+              <div
+                style={{
+                  fontSize: isGold ? "15px" : "15px",
                   fontWeight: "600",
-                  color: "white",
+                  color: "#e2e8f0",
+                  fontFamily: "system-ui, -apple-system, sans-serif",
                 }}
               >
-                L : {data.low}
-              </Typography>
-              <Typography
-                sx={{
-                  fontSize: isGold ? "14px" : "12px", // Smaller font for silver
+                L: {data.low}
+              </div>
+              <div
+                style={{
+                  fontSize: isGold ? "15px" : "15px",
                   fontWeight: "600",
-                  color: "white",
+                  color: "#e2e8f0",
+                  fontFamily: "system-ui, -apple-system, sans-serif",
                 }}
               >
-                H : {data.high}
-              </Typography>
-            </Box>
-          </Box>
-        </Box>
-      </Box>
-    </Box>
+                H: {data.high}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 
   return (
-    <Box
-      sx={{
+    <div
+      style={{
         maxWidth: "100%",
-        padding: "20px 0px",
         backgroundColor: "transparent",
+        marginBottom: "40px",
       }}
     >
       {/* Cards Container */}
-      <Box
-        sx={{
+      <div
+        style={{
           display: "flex",
-          gap: "24px",
-          flexDirection: { xs: "column", md: "row" }, // Stack on mobile, side by side on larger screens
-          justifyContent: "center",
-          alignItems: "flex-start", // Align to top
-          maxWidth: "1200px",
+          gap: "20px",
+          maxWidth: "1400px",
           margin: "0 auto",
+          flexWrap: "wrap",
         }}
       >
-        {/* Gold Card */}
-        <Box sx={{ flex: "1 1 400px", minWidth: "400px" }}>
-          {renderSpotCard("gold", goldData, true)}
-        </Box>
+        {/* Gold Card - 65% width */}
+        <div style={{ flex: "0 0 calc(60% - 10px)", minWidth: "320px" }}>
+          {renderSpotCard("Gold", goldData, true)}
+        </div>
 
-        {/* Silver Card */}
-        <Box sx={{ flex: "0 0 300px", minWidth: "250px" }}> {/* Fixed width for silver */}
-          {renderSpotCard("silver", silverData, false)}
-        </Box>
-      </Box>
-    </Box>
+        {/* Silver Card - 35% width */}
+        <div style={{ flex: "0 0 calc(40% - 10px)", minWidth: "280px" }}>
+          {renderSpotCard("Silver", silverData, false)}
+        </div>
+      </div>
+
+      {/* Responsive styles for mobile */}
+      <style>{`
+        @media (max-width: 968px) {
+          div[style*="flex: 0 0 calc(65% - 10px)"],
+          div[style*="flex: 0 0 calc(35% - 10px)"] {
+            flex: 0 0 100% !important;
+            width: 100% !important;
+          }
+        }
+      `}</style>
+    </div>
   );
 };
 
