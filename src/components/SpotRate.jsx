@@ -27,7 +27,7 @@ const SpotRate = () => {
       >
         <div
           style={{
-            fontSize: isGold ? "22px" : "18px",
+            fontSize: isGold ? "1.2vw" : "1vw",
             fontWeight: "800",
             letterSpacing: "1.5px",
             color: "#013b24",
@@ -48,7 +48,7 @@ const SpotRate = () => {
           height: "160px"
         }}
       >
-        
+
         {/* Main Content */}
         <div
           style={{
@@ -64,7 +64,7 @@ const SpotRate = () => {
           <div style={{ textAlign: "center", flex: 1 }}>
             <div
               style={{
-                fontSize: isGold ? "14px" : "14px",
+                fontSize: "0.9vw",
                 fontWeight: "600",
                 marginBottom: "12px",
                 color: "#94a3b8",
@@ -75,7 +75,7 @@ const SpotRate = () => {
             </div>
             <div
               style={{
-                fontSize: isGold ? "36px" : "30px",
+                fontSize: isGold ? "2vw" : "1.7vw",
                 fontWeight: "700",
                 color: getTextColor(data.bidChanged),
                 lineHeight: 1,
@@ -101,7 +101,7 @@ const SpotRate = () => {
           <div style={{ textAlign: "center", flex: 1 }}>
             <div
               style={{
-                fontSize: isGold ? "14px" : "14px",
+                fontSize: "0.9vw",
                 fontWeight: "600",
                 marginBottom: "12px",
                 color: "#94a3b8",
@@ -112,7 +112,7 @@ const SpotRate = () => {
             </div>
             <div
               style={{
-                fontSize: isGold ? "36px" : "30px",
+                fontSize: isGold ? "2vw" : "1.7vw",
                 fontWeight: "700",
                 color: getTextColor(data.askChanged),
                 lineHeight: 1,
@@ -138,7 +138,7 @@ const SpotRate = () => {
           <div style={{ textAlign: "center", flex: 1 }}>
             <div
               style={{
-                fontSize: isGold ? "14px" : "14px",
+                fontSize: "0.9vw",
                 fontWeight: "600",
                 marginBottom: "12px",
                 color: "#94a3b8",
@@ -150,7 +150,7 @@ const SpotRate = () => {
             <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
               <div
                 style={{
-                  fontSize: isGold ? "15px" : "15px",
+                  fontSize: "0.8vw",
                   fontWeight: "600",
                   color: "#e2e8f0",
                   fontFamily: "system-ui, -apple-system, sans-serif",
@@ -160,7 +160,7 @@ const SpotRate = () => {
               </div>
               <div
                 style={{
-                  fontSize: isGold ? "15px" : "15px",
+                  fontSize: "0.8vw",
                   fontWeight: "600",
                   color: "#e2e8f0",
                   fontFamily: "system-ui, -apple-system, sans-serif",

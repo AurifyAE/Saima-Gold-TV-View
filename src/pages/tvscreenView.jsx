@@ -1,10 +1,11 @@
-import React, { useCallback, useEffect, useState } from "react";
-import { Grid, Paper, Typography, Box, useMediaQuery } from "@mui/material";
+import React, { useEffect, useState } from "react";
+import { Grid, Paper, Typography, Box } from "@mui/material";
+import { format } from "date-fns"; // Import date-fns
 import LimitExceededModal from "../components/LimitExceededModal";
 import SpotRate from "../components/SpotRate";
 import CommodityTable from "../components/CommodityTable";
 import NewsTicker from "../components/News";
-import saimaLogo from "../assets/saimaLogo.png";
+import saimaLogo from "../assets/Saima_Gold.png";
 import Carousel from "../components/Carousel";
 import {
   fetchSpotRates,
@@ -31,7 +32,6 @@ function TvScreen() {
   const [error, setError] = useState(null);
 
   const { updateMarketData } = useSpotRate();
-
   const adminId = import.meta.env.VITE_APP_ADMIN_ID;
 
   updateMarketData(
@@ -51,7 +51,6 @@ function TvScreen() {
           fetchNews(adminId),
         ]);
 
-        // Handle Spot Rates
         const {
           commodities,
           goldBidSpread,
@@ -65,11 +64,9 @@ function TvScreen() {
         setSilverBidSpread(silverBidSpread);
         setSilverAskSpread(silverAskSpread);
 
-        // Handle Server URL
         const { serverURL } = serverURLRes.data.info;
         setServerURL(serverURL);
 
-        // Handle News
         setNews(newsRes.data.news.news);
       } catch (error) {
         console.error("Error fetching data:", error);
@@ -79,18 +76,15 @@ function TvScreen() {
 
     fetchData();
 
-    // Fetch TV screen data (you can leave this as a separate call)
     fetchTVScreenData(adminId)
       .then((response) => {
-        console.log(response);
         if (response.status === 200) {
-          // Allow TV screen view
           setShowLimitModal(false);
         }
       })
       .catch((error) => {
         if (error.response && error.response.status === 403) {
-          setShowLimitModal(true); // Show the modal on 403 status
+          setShowLimitModal(true);
         } else {
           console.error("Error:", error.message);
           alert("An unexpected error occurred.");
@@ -98,7 +92,6 @@ function TvScreen() {
       });
   }, [adminId]);
 
-  // Function to Fetch Market Data Using Socket
   useEffect(() => {
     if (serverURL) {
       const socket = io(serverURL, {
@@ -141,7 +134,6 @@ function TvScreen() {
         setError("An error occurred while receiving data");
       });
 
-      // Cleanup function to disconnect the socket
       return () => {
         socket.disconnect();
       };
@@ -157,19 +149,12 @@ function TvScreen() {
   }, []);
 
   const getFormattedDateParts = (date) => {
-    const options = {
-      weekday: "long",
-      day: "2-digit",
-      month: "long",
-      year: "numeric",
-    };
+    const day = format(date, "EEEE");
+    const dayOfMonth = format(date, "dd");
+    const month = format(date, "MMM").toUpperCase();
+    const year = format(date, "yyyy");
 
-    const day = date.toLocaleDateString("en-GB", { weekday: "long" });
-    const dayOfMonth = date.toLocaleDateString("en-GB", { day: "2-digit" });
-    const month = date
-      .toLocaleDateString("en-GB", { month: "short" })
-      .toUpperCase();
-    const year = date.toLocaleDateString("en-GB", { year: "numeric" });
+    console.log("Date Parts:", { day, dayOfMonth, month, year }); // Debug log
 
     return {
       day,
@@ -180,19 +165,14 @@ function TvScreen() {
   };
 
   const getFormattedTimeWithoutSeconds = (date) => {
-    return date.toLocaleTimeString([], {
-      hour: "2-digit",
-      minute: "2-digit",
-    });
+    return format(date, "HH:mm");
   };
 
-  const currentDate = new Date();
-  const { day, date, month, year } = getFormattedDateParts(currentDate);
+  const { day, date, month, year } = getFormattedDateParts(dateTime);
 
   return (
     <Box sx={{ minHeight: "100vh", color: "white", padding: "0px" }}>
       <Box className="flex flex-row items-center justify-between mb-10 p-10 py-0 mt-3">
-
         {/* Date */}
         <Box>
           <Typography
@@ -201,7 +181,7 @@ function TvScreen() {
           >
             {day.toUpperCase()}
           </Typography>
-          <Box className="flex flex-row">
+          <Box className="flex flex-row" sx={{ overflow: "visible", whiteSpace: "nowrap" }}>
             <Typography
               className="text-white font-bold mx-2"
               sx={{ fontSize: "1.5vw", fontWeight: "600" }}
@@ -210,21 +190,13 @@ function TvScreen() {
             </Typography>
             <Typography
               className="text-white font-bold mx-2"
-              sx={{
-                fontSize: "1.5vw",
-                fontWeight: "600",
-                marginLeft: "13px",
-              }}
+              sx={{ fontSize: "1.5vw", fontWeight: "600", marginLeft: "0.5rem" }}
             >
               {month}
             </Typography>
             <Typography
               className="text-white font-bold mx-2"
-              sx={{
-                fontSize: "1.5vw",
-                fontWeight: "600",
-                marginLeft: "13px",
-              }}
+              sx={{ fontSize: "1.5vw", fontWeight: "600", marginLeft: "0.5rem" }}
             >
               {year}
             </Typography>
@@ -232,23 +204,19 @@ function TvScreen() {
         </Box>
 
         {/* Logo */}
-        <img src={saimaLogo} alt="" className="w-[230px] h-[230px]" />
+        <img src={saimaLogo} alt="" className="w-[230px] h-[200px]" />
 
         {/* Time */}
         <Box>
           <Typography
             fontWeight="bold"
-            sx={{
-              color: "#FFF",
-              fontSize: "2.3vw",
-            }}
+            sx={{ color: "#FFF", fontSize: "2.3vw" }}
           >
             {getFormattedTimeWithoutSeconds(dateTime)}
           </Typography>
         </Box>
       </Box>
 
-      {/* Grid */}
       <Grid
         container
         spacing={4}
@@ -257,22 +225,13 @@ function TvScreen() {
         justifyContent="space-between"
         className="p-10 py-0"
       >
-        {/* Side: Commodity Table */}
         <Grid item xs={12} md={8}>
-          {/* SpotRate Component */}
           <SpotRate />
-
-          {/* Commodity Table */}
           <CommodityTable commodities={commodities} />
         </Grid>
-
-        {/* Side: SpotRate */}
         <Grid item xs={12} md={4}>
           <Carousel />
-
-          {/* TradingView Component */}
-          <TradingViewWidget/>
-
+          <TradingViewWidget />
           <Box className="flex flex-col justify-center items-center">
             <Typography sx={{ fontSize: "1.2vw", marginTop: "0px" }}>
               Powered by www.aurify.ae
@@ -281,10 +240,7 @@ function TvScreen() {
         </Grid>
       </Grid>
 
-      {/* News Component */}
       <NewsTicker newsItems={news} />
-
-      {/* Conditional rendering of the modal */}
       {showLimitModal && <LimitExceededModal />}
     </Box>
   );
