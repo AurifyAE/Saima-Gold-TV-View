@@ -6,7 +6,7 @@ import TvScreen from "./pages/tvscreenView";
 import ErrorPage from "./components/ErrorPage";
 
 function App() {
-  const [isTvScreen, setIsTvScreen] = useState(window.innerWidth >= 1000);
+  const [isTvScreen, setIsTvScreen] = useState(window.innerWidth >= 100);
 
   useEffect(() => {
     // Function to check the window size and update state
