@@ -15,7 +15,7 @@ const NewsTicker = ({ newsItems }) => {
       {/* NEWS Label */}
       <Typography sx={{
         color: "#013b24", fontWeight: "bold", fontSize: "1.6rem",
-        backgroundColor: "#d5b61d",
+        backgroundColor: "#a8802c",
         padding: "5px 10px",
       }}>
         NEWS
@@ -28,7 +28,7 @@ const NewsTicker = ({ newsItems }) => {
           overflow: "hidden",
           whiteSpace: "nowrap",
           position: "relative",
-          backgroundColor: "#013831",
+          backgroundColor: "#072919",
           padding: "5px 10px",
         }}
       >

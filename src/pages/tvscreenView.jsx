@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { Grid, Paper, Typography, Box } from "@mui/material";
+import { AccessTime } from "@mui/icons-material";
 import { format } from "date-fns"; // Import date-fns
 import LimitExceededModal from "../components/LimitExceededModal";
 import SpotRate from "../components/SpotRate";
 import CommodityTable from "../components/CommodityTable";
 import NewsTicker from "../components/News";
-import saimaLogo from "../assets/Saima_Gold.png";
+import saimaLogo from "../assets/TIBER_Logo.png";
 import Carousel from "../components/Carousel";
 import {
   fetchSpotRates,
@@ -204,10 +205,11 @@ function TvScreen() {
         </Box>
 
         {/* Logo */}
-        <img src={saimaLogo} alt="" className="w-[230px] h-[200px]" />
+        <img src={saimaLogo} alt="" className="w-[190px] h-[200px]" />
 
         {/* Time */}
-        <Box>
+        <Box className="flex flex-col items-center">
+          <AccessTime sx={{ color: "#FFF", fontSize: "2vw", marginBottom: "0.5rem" }} />
           <Typography
             fontWeight="bold"
             sx={{ color: "#FFF", fontSize: "2.3vw" }}

@@ -76,7 +76,7 @@ const CommodityTable = ({ commodities }) => {
         <TableHead>
           <TableRow
             sx={{
-              background: "#d5b61d",
+              background: "#a8802c",
               "& th": {
                 borderBottom: "none",
               },
@@ -172,7 +172,7 @@ const CommodityTable = ({ commodities }) => {
                       borderBottom: "none",
                       padding: "7px",
                     },
-                    background: "#013831",
+                    background: "#072919",
                     "& tr td": {
                       border: "2px solid #D2AD36",
                     },

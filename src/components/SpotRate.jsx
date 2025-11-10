@@ -19,15 +19,15 @@ const SpotRate = () => {
           top: "-22px",
           left: "50%",
           transform: "translateX(-50%)",
-          background: "#f4d03f",
+          background: "#a8802c",
           borderRadius: "24px",
-          padding: isGold ? "12px 32px" : "10px 24px",
+          padding: isGold ? "6px 16px" : "8px 16px",
           zIndex: 2,
         }}
       >
         <div
           style={{
-            fontSize: isGold ? "1.2vw" : "1vw",
+            fontSize: isGold ? "1.4vw" : "1.2vw",
             fontWeight: "800",
             letterSpacing: "1.5px",
             color: "#013b24",
@@ -41,7 +41,7 @@ const SpotRate = () => {
       {/* Main Card */}
       <div
         style={{
-          background: "#013831",
+          background: "#072919",
           borderRadius: "24px",
           position: "relative",
           overflow: "hidden",
